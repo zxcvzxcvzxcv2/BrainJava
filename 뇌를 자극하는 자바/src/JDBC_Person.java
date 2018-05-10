@@ -8,15 +8,15 @@ import java.sql.Statement;
 class Person {
 	
 	String Jumincd = null;
-	String pname = null;
-	String gender = null;
+	String pname   = null;
+	String gender  = null;
 	int age = 0;
 	
-	public Person()  //기본생성자
+	public Person()  // 기본 생성자
 	{
 		this.Jumincd = "주민번호 입력 누락";
-		this.pname = "이름 입력 누락";
-		this.gender = "성별 입력 누락";
+		this.pname   = "이름 입력 누락";
+		this.gender  = "성별 입력 누락";
 		this.age = 0;
 	}
 	
@@ -52,7 +52,7 @@ class Person {
 class JDBC_Person {
     public static void main(String args[]) {
     	
-    	Person[] persons = new Person[3];  // 배열객체
+    	Person[] persons = new Person[5];  // 배열객체
     	
     	for(int i = 0; i < persons.length; i++) {
     		persons[i] = new Person(); //생성자 호출하여 배열레퍼런스 대입
@@ -72,6 +72,7 @@ class JDBC_Person {
     	Person person;           // 레퍼런스 변수 선언
     	person = new Person();   // 객체생성 - new 연산자(생성자) 이용
     	*/
+    	
     	//person객체에 멤버필드를 셋팅
 /*    	person.setJumincd("800511-1574310");
     	person.setPname("홍길동");
@@ -134,7 +135,7 @@ class JDBC_Person {
              /*Jumincd = rs.getString(1); //rs.getString("Jumincd");
                pname   = rs.getString(2); //rs.getString("pname");
                gender  = rs.getString(3); //rs.getString("gender");
-               age        = rs.getInt(4);    //rs.getInt("age");
+               age     = rs.getInt(4);    //rs.getInt("age");
 */           
                //System.out.println(Jumincd + "---" + pname + "---" + gender + "---" + age);
             }
@@ -143,7 +144,8 @@ class JDBC_Person {
             System.out.println("===========================");
             
             for(i = 0; i < persons.length; i++) {
-        	System.out.println("주민번호:" + persons[i].getJumincd());
+            	
+        	    System.out.println("주민번호:" + persons[i].getJumincd());
         		System.out.println("이름:"    + persons[i].getPname());
         		System.out.println("성별:"    + persons[i].getGender());
         		System.out.println("나이:"    + persons[i].getAge());
@@ -152,6 +154,7 @@ class JDBC_Person {
             
            // System.out.println(Jumincd + "---" + pname + "---" + gender + "---" + age);
         }
+        
         catch (ClassNotFoundException cnfe) {
             System.out.println("해당 클래스를 찾을 수 없습니다." + 
                                cnfe.getMessage());

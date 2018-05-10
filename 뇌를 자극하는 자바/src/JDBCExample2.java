@@ -44,7 +44,7 @@ class JDBCExample2 {
                Jumincd = rs.getString(1); //rs.getString("Jumincd");
                pname   = rs.getString(2); //rs.getString("pname");
                gender  = rs.getString(3); //rs.getString("gender");
-               age        = rs.getInt(4);    //rs.getInt("age");
+               age     = rs.getInt(4);    //rs.getInt("age");
            
                System.out.println(Jumincd + "---" + pname + "---" + gender + "---" + age);
             }

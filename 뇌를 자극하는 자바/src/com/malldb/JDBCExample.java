@@ -5,8 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+
 
 class JDBCExample {
     public static void main(String args[]) {

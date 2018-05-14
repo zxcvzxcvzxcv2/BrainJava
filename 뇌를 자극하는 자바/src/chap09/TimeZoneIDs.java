@@ -9,10 +9,8 @@ public class TimeZoneIDs {
 	public static void main(String[] args) {
 		
 		GregorianCalendar cal = new GregorianCalendar();
-		
-		
-		for(String name : TimeZone.getAvailableIDs())
-			System.out.println(name);
+		TimeZone timeZone = TimeZone.getTimeZone("Europe/London");
+		cal.setTimeZone(timeZone);
 		
 		int year = cal.get(Calendar.YEAR);
 		int month = cal.get(Calendar.MONTH) + 1;  //월은 +1을 더해준다.

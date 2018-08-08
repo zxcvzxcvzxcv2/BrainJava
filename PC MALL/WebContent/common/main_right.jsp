@@ -104,8 +104,9 @@
 					<td width=145><font color=blue><a href="../product/product.jsp?i=<%= id %>">[<%=name%>]</a></font></td>
 				</tr>
 				<tr>
-					<td><font color=red >&nbsp; [<%=price%>&nbsp;원]</font>
-					
+					<td>
+					   <c:set var="fmtPrice" value="<%=price%>"/>
+				       <font color=red>&nbsp;[<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;원]</font>
 					</td>
 				</tr>
 			</table>
@@ -226,11 +227,12 @@
 
 <!-- 상품  테이블 표시-->
 	<tr>
-		<td rowspan=3 width=5><img src="" width=8 height=8 border=0>xxx</td>
+		<td rowspan=3 width=5><img src="" width=8 height=8 border=0></td>
 		<td width=65 height=70 align=left valign=middle><A href="../product/product.jsp?i=<%= id %>">
           <img src="../product/image/<%= photo %>" width=60 height=60 border=0></A></td>
 		<td width=100><a href="../product/product.jsp?i=<%= id %>">[<%= name %>]</a><br>
-          <font class="P9" color=red>[<%= price %>&nbsp;원]</font></td>
+          <c:set var="fmtPrice" value="<%=price%>"/>
+				<font color=red>&nbsp;[<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;원]</font>
 	</tr>
 	<tr>
 		<td colspan= 2 width=170><%= expression%></td>
@@ -252,5 +254,4 @@
 %>
 	</table><br>
 	</td>
-	</tr>
-</table>
+

@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=euc-kr" import="java.sql.*,oracle.dbpool.*" %>
+<%@ page contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*" %>
 
 <table align=left border =1 width=450 cellpadding=0 cellspacing=0 bgcolor=#ffffff>
 	<tr>
 		<td><table align=center border=0 width=450  cellpadding=0 cellspacing=0 bgcolor=#ffffff><div align=left><img src="../img/bg-img1.gif" width=450 height=121 ></div></table></td>
 	</tr>
-	<!-- √÷Ω≈ªÛ«∞ √‚∑¬  -->
+	<!-- ÏµúÏã†ÏÉÅÌíà Ï∂úÎ†•  -->
 	<tr>
 		<div align=left><td bgcolor=white><img src="../img/title_newproduct.gif"></div></td>
 	</tr>
@@ -30,7 +30,7 @@
 			expression=rs.getString(5);
 			photo=rs.getString(6);
 %>
-         <!-- «•Ω√ ≈◊¿Ã∫Ì  -->
+         <!-- ÌëúÏãú ÌÖåÏù¥Î∏î  -->
 		<td>
 			<table width=145 border=0 cellpadding=1 cellspacing=2 align=center>
 			<tr>
@@ -41,7 +41,10 @@
 				<td width=145><font color=blue>&nbsp;<a href="../product/product.jsp?i=<%= id %>">[<%=name%>]</a></font></td>
 			</tr>
 			<tr>
-				<td><font color=red>&nbsp;[<%=price%>&nbsp;ø¯]</font></td>
+				<td>
+				    <c:set var="fmtPrice" value="<%=price%>"/>
+				    <font color=red>&nbsp;[<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;Ïõê]</font>
+				</td>
 			</tr>
 			</table>
 	    </td>
@@ -59,7 +62,7 @@
 		</td> 
 	</tr>
 
-	<!-- ∫£Ω∫∆Æ ªÛ«∞ -->
+	<!-- Î≤†Ïä§Ìä∏ ÏÉÅÌíà -->
 	<tr><div align=left>
 		<td bgcolor=white><img src="../img/title_bestproduct.gif"></div></td>
 	</tr>
@@ -87,7 +90,7 @@
 			price = rs.getInt(3);
 			photo = rs.getString(4);
 %>
-       <!-- «•Ω√≈◊¿Ã∫Ì -->
+       <!-- ÌëúÏãúÌÖåÏù¥Î∏î -->
 		<td>
 			<table width=145 border=0 cellpadding=1 cellspacing=2 align=center>
 				<tr>
@@ -98,7 +101,7 @@
 					<td width=145><font color=blue><a href="../product/product.jsp?i=<%= id %>">[<%=name%>]</a></font></td>
 				</tr>
 				<tr>
-					<td><font color=red>&nbsp;[<%=price%>&nbsp;ø¯]</font></td>
+					<td><font color=red>&nbsp;[<%=price%>&nbsp;Ïõê]</font></td>
 				</tr>
 			</table>
 		</td>
@@ -116,7 +119,7 @@
 		</td>
 	</tr>
 
-<!--  √÷Ω≈ qna  -->
+<!--  ÏµúÏã† qna  -->
 	<tr>
 		<td>
 			<script language="javascript">
@@ -185,7 +188,7 @@
 </table>
 </td>
 
-<!-- √ﬂ√µªÛ«∞(ø¿∏•¬  ∏ﬁ¥∫) -->
+<!-- Ï∂îÏ≤úÏÉÅÌíà(Ïò§Î•∏Ï™Ω Î©îÎâ¥) -->
 <td valign=top width=180>
 <table border=0 cellpadding=0 cellspacing=0 width=175>
 	<tr><div align=left>
@@ -215,13 +218,13 @@
 			code=rs.getString(6);
 %>
 
-<!-- ªÛ«∞  ≈◊¿Ã∫Ì «•Ω√-->
+<!-- ÏÉÅÌíà  ÌÖåÏù¥Î∏î ÌëúÏãú-->
 	<tr>
 		<td rowspan=3 width=5><img src="/.img/spacer.gif" width=8 height=8 border=0></td>
 		<td width=65 height=70 align=left valign=middle><A href="../product/product.jsp?i=<%= id %>">
           <img src="../product/image/<%= photo %>" width=60 height=60 border=0></A></td>
 		<td width=100><a href="../product/product.jsp?i=<%= id %>">[<%= name %>]</a><br>
-          <font class="P9" color=red>[<%= price %>&nbsp;ø¯]</font></td>
+          <font class="P9" color=red>[<%= price %>&nbsp;Ïõê]</font></td>
 	</tr>
 	<tr>
 		<td colspan= 2 width=170><%= expression%></td>

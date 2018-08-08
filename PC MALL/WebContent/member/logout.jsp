@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <%
-	// ¼¼¼Ç Á¦°Å
+	// ì„¸ì…˜ ì œê±°
     session.invalidate();
 
     if( application.getAttribute("admincount") != null) {
@@ -13,6 +13,6 @@
 	}				
 %>
 <script language="javascript">
-    alert('·Î±×¾Æ¿ô µÇ¾ú½À´Ï´Ù.');
+    alert('ë¡œê·¸ì•„ì›ƒ ë˜ì—ˆìŠµë‹ˆë‹¤.');
     location.href="../main/index.jsp";
 </script>    

@@ -1,7 +1,7 @@
-<%@ page contentType="text/html;charset=euc-kr" 
+<%@ page contentType="text/html;charset=UTF-8" 
     import="java.sql.*,java.util.*,oracle.dbpool.*"
     errorPage="error.jsp" %>
-<% request.setCharacterEncoding("euc-kr"); %>
+<% request.setCharacterEncoding("UTF-8"); %>
 
 <% 
 	DBConnectionManager pool = DBConnectionManager.getInstance();
@@ -36,11 +36,11 @@
         pool.freeConnection("ora8", con);
         
        	 
-    	session.setAttribute("pname",mem_name);	 //È¸¿ø ÀÌ¸§
+    	session.setAttribute("pname",mem_name);	 //íšŒì› ì´ë¦„
         
 %>
         <script language=javascript>
-                alert("È¸¿øÁ¤º¸¸¦ ¼öÁ¤Çß½À´Ï´Ù.");
+                alert("íšŒì›ì •ë³´ë¥¼ ìˆ˜ì •í–ˆìŠµë‹ˆë‹¤.");
                 document.location.href='../main/index.jsp';
         </script>
 <%     

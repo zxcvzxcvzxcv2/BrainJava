@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=euc-kr" isErrorPage="true" %>
+<%@ page contentType="text/html;charset=UTF-8" isErrorPage="true" %>
 
 <HTML>
    <HEAD>
@@ -6,7 +6,7 @@
 </HEAD>
 
 <BODY>
-	<h3>¿À·ù°¡ ¹ß»ýÇß½À´Ï´Ù.</h3>
+	<h3>ì˜¤ë¥˜ê°€ ë°œìƒí–ˆìŠµë‹ˆë‹¤.</h3>
 	<%= exception.toString() %>
 </BODY>
 </HTML>

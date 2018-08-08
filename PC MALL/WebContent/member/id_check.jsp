@@ -1,9 +1,9 @@
-<%@ page contentType="text/html;charset=euc-kr" 
+<%@ page contentType="text/html;charset=UTF-8" 
                  import="java.sql.*,java.util.*,oracle.dbpool.*"
             errorPage="error.jsp" %>
 <HTML>
    <HEAD>
-      <TITLE> ID �ߺ� üũ </TITLE>
+      <TITLE> ID 중복 체크 </TITLE>
    </HEAD>
 
 <BODY>
@@ -20,19 +20,19 @@
        if(rs.getInt(1) > 0) {
  %>
       <center>
-         <h4>���̵�(id) �ߺ� !!!</h4>
+         <h4>아이디(id) 중복 !!!</h4>
          <img src="img/warning.gif"><br><br>
-         <font size=2>�Է��� ���̵�(id)�� ������Դϴ�.</font><br>
-         <a href="JavaScript:window.close()">�ݱ�</a>
+         <font size=2>입력한 아이디(id)는 사용중입니다.</font><br>
+         <a href="JavaScript:window.close()">닫기</a>
       </center>
 <%
        } else {
 %>
       <center>
-         <h4>��� �����մϴ� !!!</h4>
+         <h4>사용 가능합니다 !!!</h4>
          <img src="img/cong.gif"><br><br>
-         <font size=2>�Է��� ���̵�(id)�� ��� �����մϴ�.</font><br>
-         <a href="JavaScript:window.close()">����ϱ�</a>
+         <font size=2>입력한 아이디(id)는 사용 가능합니다.</font><br>
+         <a href="JavaScript:window.close()">계속하기</a>
       </center>
 <%
        }

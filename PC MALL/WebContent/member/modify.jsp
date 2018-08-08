@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=EUC_KR"  %>
+<%@ page contentType="text/html;charset=UTF-8"  %>
 
 <%
       if( session.getAttribute("pid") == null) {
 %>
 	<script language="Javascript">
-	   alert("·Î±×ÀÎÀ» ÇÏ¼¼¿ä")
+	   alert("ë¡œê·¸ì¸ì„ í•˜ì„¸ìš”")
 	   location.href="../member/login.jsp";
     </script>
 <%
@@ -13,7 +13,7 @@
 
 <html>
 <head>
-  <title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+  <title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
   <link href="../common/u3.css" type=text/css rel=stylesheet>
 <SCRIPT language=JavaScript src="../common/u3.js"></script>
 </head>

@@ -1,10 +1,10 @@
-<%@ page contentType="text/html;charset=EUC_KR"  %>
+<%@ page contentType="text/html;charset=UTF-8"  %>
 
 <%
      if( session.getAttribute("pid") == null) {
 %>
     <script language="Javascript">
-	   alert("·Î±×ÀÎÀ» ÇÏ¼¼¿ä")
+	   alert("ë¡œê·¸ì¸ì„ í•˜ì„¸ìš”")
 	   location.href="../member/login.jsp";
     </script>
 <%
@@ -13,16 +13,16 @@
 
 <html>
 <head>
-  <title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+  <title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
 	<LINK href="../common/u3.css" type=text/css rel=STYLESHEET>
 	<SCRIPT language=JavaScript src="../common/u3.js"></script>
 <script type="text/javascript">
 
 function deleteConfirm(){
-	if (confirm("Á¤¸» Å»Åğ ÇÏ½Ã°Ú½À´Ï±î??") == true){    //È®ÀÎ
+	if (confirm("ì •ë§ íƒˆí‡´ í•˜ì‹œê² ìŠµë‹ˆê¹Œ??") == true){    //í™•ì¸
     	//document.form.submit();
 	    location.href="delete.jsp";
-	}else{   //Ãë¼Ò
+	}else{   //ì·¨ì†Œ
 		history.go(-1);
     	//return;
 	}

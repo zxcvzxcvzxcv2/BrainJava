@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=euc-kr" 
+<%@ page contentType="text/html;charset=UTF-8" 
          import="java.sql.*,oracle.dbpool.*"
          errorPage="error.jsp" %>
 <%          
@@ -27,12 +27,12 @@
 
 <HTML>
 	<HEAD>
-		<TITLE>È¸¿øÁ¤º¸¼öÁ¤È­¸é</TITLE>
+		<TITLE>íšŒì›ì •ë³´ìˆ˜ì •í™”ë©´</TITLE>
    
 	<script language="JavaScript">
 		function checkInput() {
 		 	if(document.mform.pwd.value == "") {
-				alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 				return;
 			}
 		
@@ -46,38 +46,38 @@
 <form name=mform method=post action="update.jsp" >
 	<table cellpadding=3 cellspacing=0 border=1 width=550 align=center>       
 		<tr bgcolor=#7aaad5 height=30>
-			<td align=center bgcolor="#0000FF" colspan=2><font color="#ffffff"><b>È¸¿øÁ¤º¸ ¼öÁ¤&nbsp;</b></font></td>
+			<td align=center bgcolor="#0000FF" colspan=2><font color="#ffffff"><b>íšŒì›ì •ë³´ ìˆ˜ì •&nbsp;</b></font></td>
 		</tr>
 		<tr>
-			<td  bgcolor=#eff4f8>&nbsp;È¸¿ø ¼º¸í</td>
+			<td  bgcolor=#eff4f8>&nbsp;íšŒì› ì„±ëª…</td>
 			<td bgcolor=white><input type=text name="name" size=20 maxlength=20 value="<%=mem_name%>"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#eff4f8">&nbsp;ÁÖ¹Îµî·Ï¹øÈ£</td>
+			<td bgcolor="#eff4f8">&nbsp;ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸</td>
 			<td bgcolor=white><input type=text name=ssn size=13 maxlength=13 value="<%=mem_ssn%>"readonly></td>
 			</tr>
 		<tr>
-			<td bgcolor="#eff4f8">&nbsp;È¸¿ø id</td>
+			<td bgcolor="#eff4f8">&nbsp;íšŒì› id</td>
 			<td bgcolor=white><input type=text name=uid size=12 maxlength=16 value="<%=mem_uid%>" readonly style="width:120"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#eff4f8">&nbsp;ºñ¹Ğ¹øÈ£<font color=red>&nbsp;*</font></td>
+			<td bgcolor="#eff4f8">&nbsp;ë¹„ë°€ë²ˆí˜¸<font color=red>&nbsp;*</font></td>
 				<td bgcolor=white><input type=password name=pwd size=8 maxlength=12 style="width:80" value="<%=mem_pwd%>"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#eff4f8">&nbsp;ºñ¹Ğ¹øÈ£È®ÀÎ<font color=red>&nbsp;*</font></td>
-			<td bgcolor=white><input type=password name=repwd size=8 maxlength=12 value="<%=mem_pwd%>" style="width:80">&nbsp;ºñ¹Ğ¹øÈ£¸¦ ÇÑ¹ø ´õ ÀÔ·ÂÇØ ÁÖ¼¼¿ä. </td>
+			<td bgcolor="#eff4f8">&nbsp;ë¹„ë°€ë²ˆí˜¸í™•ì¸<font color=red>&nbsp;*</font></td>
+			<td bgcolor=white><input type=password name=repwd size=8 maxlength=12 value="<%=mem_pwd%>" style="width:80">&nbsp;ë¹„ë°€ë²ˆí˜¸ë¥¼ í•œë²ˆ ë” ì…ë ¥í•´ ì£¼ì„¸ìš”. </td>
 		</tr>
 		<tr>
-			<td bgcolor="#eff4f8">&nbsp;¿ìÆí¹øÈ£<font color=red>&nbsp;*</font></td>
+			<td bgcolor="#eff4f8">&nbsp;ìš°í¸ë²ˆí˜¸<font color=red>&nbsp;*</font></td>
 			<td bgcolor=white colspan=2><input type=text name=zip size=7 maxlength=7 value="<%=mem_zip==null?"":mem_zip%>"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#eff4f8">&nbsp;ÁÖ¼Ò<font color=red>&nbsp;*</font></td>
+			<td bgcolor="#eff4f8">&nbsp;ì£¼ì†Œ<font color=red>&nbsp;*</font></td>
 			<td bgcolor=white><input type=text name=addr size=50 maxlength=100 value="<%=mem_address==null?"":mem_address%>"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#eff4f8">&nbsp;ÀüÈ­¹øÈ£<font color=red>&nbsp;*</font></td>
+			<td bgcolor="#eff4f8">&nbsp;ì „í™”ë²ˆí˜¸<font color=red>&nbsp;*</font></td>
 			<td bgcolor=white><input type=text name=tel size=12 maxlength=12 value="<%=mem_phone%>"></td>
 		</tr>
 		<tr>
@@ -85,24 +85,24 @@
 			<td bgcolor=white valign=middle><input type=text name=email size=30 maxlength=30 value="<%=mem_email%>"></td>
 		</tr>
 		<tr>
-			<td bgcolor="#eff4f8">&nbsp;Á÷¾÷<font color=red>&nbsp;*</font></td>
+			<td bgcolor="#eff4f8">&nbsp;ì§ì—…<font color=red>&nbsp;*</font></td>
 			<td bgcolor=white>
 			  <select name=job class="formbox">
-				<option value="0"       <% if(mem_job.equals("0"))    { %> selected <%}%>> ¼±ÅÃÇÏ¼¼¿ä ---
-				<option value="ÇĞ»ı"    <% if(mem_job.equals("ÇĞ»ı"))  { %>selected<%}%>>ÇĞ»ı
-				<option value="±³¿ø"    <% if(mem_job.equals("±³¿ø"))  { %>selected<%}%>>±³¿ø
-				<option value="È¸»ç¿ø"  <% if(mem_job.equals("È¸»ç¿ø")){ %>selected<%}%>>È¸»ç¿ø
-				<option value="°ø¹«¿ø"  <% if(mem_job.equals("°ø¹«¿ø")){ %>selected<%}%>>°ø¹«¿ø
-				<option value="ÀÇ·áÀÎ"  <% if(mem_job.equals("ÀÇ·áÀÎ")){ %>selected<%}%>>ÀÇ·áÀÎ
- 				<option value="¹ıÁ¶ÀÎ"  <% if(mem_job.equals("¹ıÁ¶ÀÎ")){ %>selected<%}%>>¹ıÁ¶ÀÎ
-				<option value="ÁÖºÎ"    <% if(mem_job.equals("ÁÖºÎ"))  { %>selected<%}%>>ÁÖºÎ
-				<option value="±âÅ¸"    <% if(mem_job.equals("±âÅ¸"))  { %>selected<%}%>>±âÅ¸
+				<option value="0"       <% if(mem_job.equals("0"))    { %> selected <%}%>> ì„ íƒí•˜ì„¸ìš” ---
+				<option value="í•™ìƒ"    <% if(mem_job.equals("í•™ìƒ"))  { %>selected<%}%>>í•™ìƒ
+				<option value="êµì›"    <% if(mem_job.equals("êµì›"))  { %>selected<%}%>>êµì›
+				<option value="íšŒì‚¬ì›"  <% if(mem_job.equals("íšŒì‚¬ì›")){ %>selected<%}%>>íšŒì‚¬ì›
+				<option value="ê³µë¬´ì›"  <% if(mem_job.equals("ê³µë¬´ì›")){ %>selected<%}%>>ê³µë¬´ì›
+				<option value="ì˜ë£Œì¸"  <% if(mem_job.equals("ì˜ë£Œì¸")){ %>selected<%}%>>ì˜ë£Œì¸
+ 				<option value="ë²•ì¡°ì¸"  <% if(mem_job.equals("ë²•ì¡°ì¸")){ %>selected<%}%>>ë²•ì¡°ì¸
+				<option value="ì£¼ë¶€"    <% if(mem_job.equals("ì£¼ë¶€"))  { %>selected<%}%>>ì£¼ë¶€
+				<option value="ê¸°íƒ€"    <% if(mem_job.equals("ê¸°íƒ€"))  { %>selected<%}%>>ê¸°íƒ€
 	 		  </select>
 			</td>
 		</tr>
 		<tr bgcolor=#ffffff>
-			<td colspan=4>&nbsp;<font color=red>*</font> Ç¥½Ã¸¸ ¼öÁ¤ÇÒ ¼ö ÀÖ½À´Ï´Ù&nbsp;&nbsp;
-				<input type="button" name="modify" value="¼ö Á¤" OnClick="checkInput()"></td>
+			<td colspan=4>&nbsp;<font color=red>*</font> í‘œì‹œë§Œ ìˆ˜ì •í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤&nbsp;&nbsp;
+				<input type="button" name="modify" value="ìˆ˜ ì •" OnClick="checkInput()"></td>
 		</tr>
 	</table> 
 </form>

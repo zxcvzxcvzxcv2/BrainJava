@@ -1,11 +1,11 @@
-<%@ page contentType="text/html;charset=euc-kr" 
+<%@ page contentType="text/html;charset=UTF-8" 
 		 import="java.sql.*,oracle.dbpool.*"
 		 errorPage="error.jsp" %>
-<% request.setCharacterEncoding("euc-kr"); %>
+<% request.setCharacterEncoding("UTF-8"); %>
 
 <HTML>
    <HEAD>
-      <TITLE> ȸ�� ���� ó�� </TITLE>
+      <TITLE> 회원 가입 처리 </TITLE>
    </HEAD>
 <BODY>
 
@@ -31,7 +31,7 @@
 			rs.close();
 %>
         <script language=javascript>
-                alert("�ߺ��Ǵ� ���̵� �����մϴ�.");
+                alert("중복되는 아이디가 존재합니다.");
                 history.back();
         </script>
 <%
@@ -60,7 +60,7 @@
 			pool.freeConnection("ora8", con); 
 %>
 			<script language=javascript>
-				alert("ȸ�������� �����մϴ�.");
+				alert("회원가입을 축하합니다.");
 				document.location.href='../main/index.jsp';
 			</script>
 <%
@@ -69,7 +69,7 @@
 		pool.freeConnection("ora8", con);
 %>
 		<script language=javascript>
-			alert("ȸ�������� �����Ͽ����ϴ�. �ٽ� �õ��� ���ñ� �ٶ��ϴ�.");
+			alert("회원가입이 실패하였습니다. 다시 시도해 보시기 바랍니다.");
 			document.location.href='../main/index.jsp';
 		</script>
 <%

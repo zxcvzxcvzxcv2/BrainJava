@@ -1,4 +1,6 @@
 <%@ page language="java" import="java.sql.*,oracle.dbpool.*"  contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -71,7 +73,10 @@
           </tr>
           <tr>
                   <td width=90>&nbsp; 가       격</td>
-                  <td width=280>&nbsp;[<%=price%>원]</td>
+                  <td width=280>
+                  <c:set var="fmtPrice" value="<%=price%>"/>
+				<font >&nbsp;[<fmt:formatNumber value="${fmtPrice }" pattern="#,###" />&nbsp;&nbsp;원]</font>
+                  </td>
           </tr>
            <tr> 
                   <td>&nbsp; 제조 회사</td>

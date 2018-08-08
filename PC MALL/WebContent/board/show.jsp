@@ -1,4 +1,4 @@
-<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=euc-kr" %>
+<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 <%!
      String b_name ,b_email,b_title,b_content,b_date,b_ip,mailto;
@@ -8,14 +8,14 @@
 <%
 try {
       
-   //DBÇ® ¸Þ´ÏÀú °´Ã¼ »ý¼º »ç¿ë
+   //DBí’€ ë©”ë‹ˆì € ê°ì²´ ìƒì„± ì‚¬ìš©
    DBConnectionManager pool = DBConnectionManager.getInstance();
    Connection con = pool.getConnection("ora8");
      
    String bid=request.getParameter("b_id"); 
 
    Statement stmt = con.createStatement();
-   stmt.executeUpdate("update re_board set b_hit=b_hit+1 where b_id="+bid+"");  //Á¶È¸¼ö¸¦ ¿Ã¸°´Ù
+   stmt.executeUpdate("update re_board set b_hit=b_hit+1 where b_id="+bid+"");  //ì¡°íšŒìˆ˜ë¥¼ ì˜¬ë¦°ë‹¤
 
    String sql="select b_id, b_name, b_email, b_title, b_content, to_char(b_date,'yy-mm-dd'),b_hit, b_ip, ref, step, anslevel, pwd  from re_board where b_id="+bid; 
 
@@ -29,7 +29,7 @@ try {
       b_date=rs.getString(6);
       b_hit=rs.getInt(7)+1;
       b_ip=rs.getString(8);
-      ref = rs.getInt(9);  // ±Û ±×·ì
+      ref = rs.getInt(9);  // ê¸€ ê·¸ë£¹
       if(!b_email.equals("")) {
          mailto="(<font size=2><a href=mailto:"+b_email+">"+b_email+"</a></font>)";
       } else {
@@ -45,40 +45,40 @@ try {
 %>	    
 
 <html>
-<head><title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+<head><title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
 <link href="../common/u3.css" type=text/css rel=stylesheet>
 </head>
 
 <BODY leftmargin='0' topmargin='0' marginwidth='0' marginheight='0'>
     <jsp:include page="../common/basic_screen.jsp" flush="true"/>
 
-<center><br>
+<br>
   <table border=1 width=550 height=30 bordercolor=black>
 	<tr>
-		<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>°Ô½Ã¹° ÀÐ±â</b></td>
+		<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>ê²Œì‹œë¬¼ ì½ê¸°</b></td>
 	</tr>
   </table>
   <br>
 <table width="550" border="1" cellspacing="0" cellpadding="0">
 
 	<tr>
-	   <td width=120 align=center bgcolor="#7eaee9">µî·ÏÀÚ</td>
+	   <td width=120 align=center bgcolor="#7eaee9">ë“±ë¡ìž</td>
 	   <td width=170 bgcolor=ffffff>&nbsp;<%=b_name%></td>
-	   <td width=100 align=center bgcolor="#7eaee9">ÀÛ¼ºÀÏ</td>
+	   <td width=100 align=center bgcolor="#7eaee9">ìž‘ì„±ì¼</td>
 	   <td width=160 bgcolor=ffffff>&nbsp;<%=b_date%>
 	   </td>
 	</tr>	
 	<tr>
-	   <td width=120 align=center bgcolor="#7eaee9">E-mail ÁÖ¼Ò</td>
+	   <td width=120 align=center bgcolor="#7eaee9">E-mail ì£¼ì†Œ</td>
 	   <td colspan=3 bgcolor=ffffff>&nbsp;
 	        <a href="mailto:<%=b_email%>"><%=b_email%></a></td>
 	</tr>	
 	<tr>
-	   <td align=center bgcolor="#7eaee9">Á¦ ¸ñ</td>
+	   <td align=center bgcolor="#7eaee9">ì œ ëª©</td>
 	   <td colspan=3 bgcolor=ffffff>&nbsp;<%=b_title%></td>
 	</tr>	
 	<tr>
-	   <td align=center bgcolor="#7eaee9">³» ¿ë</td>
+	   <td align=center bgcolor="#7eaee9">ë‚´ ìš©</td>
 	   <td colspan=3 bgcolor=ffffff>
 	    <table>
 	      <tr>
@@ -97,7 +97,7 @@ try {
 	   	</td>
 	  </TR>
 	</table>
-	</center>
+	
 		<jsp:include page="../common/basic_copyright.jsp" flush="true"/>
 </body>
 </html>

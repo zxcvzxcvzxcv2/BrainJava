@@ -1,7 +1,9 @@
-<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=euc-kr" %>
+<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 <%
- //DBÇ® ¸Ş´ÏÀú °´Ã¼ »ı¼º »ç¿ë
+
+  
+ //DBí’€ ë©”ë‹ˆì € ê°ì²´ ìƒì„± ì‚¬ìš©
    DBConnectionManager pool = DBConnectionManager.getInstance();
    Connection con = pool.getConnection("ora8");
   
@@ -31,7 +33,7 @@
 %>
 
 <html>
-<head><title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+<head><title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
 <LINK href="../common/u3.css" type=text/css rel=STYLESHEET>
 
 <script>
@@ -40,22 +42,22 @@ function go_reply()
 	var form = document.reply_form;
 	
 	if(!form.title.value){
-		alert("Á¦¸ñÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ì œëª©ì„ ì…ë ¥í•˜ì„¸ìš”.");
 		form.title.focus();
 		return ;
 	}
 	if(!form.pwd.value){
-		alert("¾ÏÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+		alert("ì•”í˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 		form.pwd.focus();
 		return ;
 	}
 	if(!form.name.value){
-		alert("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
+		alert("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
 		form.name.focus();
 		return ;
 	}
 	if(!form.body.value){
-		alert("³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä.");
+		alert("ë‚´ìš©ì„ ì…ë ¥í•˜ì„¸ìš”.");
 		form.body.focus();
 		return;
 	}
@@ -70,7 +72,7 @@ function go_reply()
 <br>
   <table border=1 width=550 height=30 bordercolor=black>
 	<tr>
-		<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>°Ô½Ã¹° ´äº¯</b></td>
+		<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>ê²Œì‹œë¬¼ ë‹µë³€</b></td>
 	</tr>
   </table><br>
 
@@ -83,21 +85,21 @@ function go_reply()
   <input type="hidden" name="level" value="<%=level%>">
 
 	<tr>
-	   <td width=110 align=center bgcolor="#7eaee9">µî·ÏÀÚ</td>
+	   <td width=110 align=center bgcolor="#7eaee9">ë“±ë¡ì</td>
 	   <td width=180 bgcolor=ffffff>&nbsp;<input type="text" name="name" size=20></td>
-	   <td width=100 align=center bgcolor="#7eaee9">ºñ¹Ğ¹øÈ£</td>
+	   <td width=100 align=center bgcolor="#7eaee9">ë¹„ë°€ë²ˆí˜¸</td>
 	   <td width=160 bgcolor=ffffff>&nbsp;<input type="password" name="pwd" size=15 value="" ></td>
 	</tr>	
 	<tr>
-	   <td width=110 align=center bgcolor="#7eaee9">E-mail ÁÖ¼Ò</td>
+	   <td width=110 align=center bgcolor="#7eaee9">E-mail ì£¼ì†Œ</td>
 	   <td  colspan=3 bgcolor=ffffff>&nbsp;<input type="text" size=30 name="email" value=""></td>
 	</tr>	
 	<tr>
-	   <td align=center bgcolor="#7eaee9">Á¦ ¸ñ</td>
-	   <td  colspan=3 bgcolor=ffffff>&nbsp;<input type="text" size=40 name="title" value="<%="[´äº¯] "+b_title%>"></td>
+	   <td align=center bgcolor="#7eaee9">ì œ ëª©</td>
+	   <td  colspan=3 bgcolor=ffffff>&nbsp;<input type="text" size=40 name="title" value="<%="[ë‹µë³€] "+b_title%>"></td>
 	</tr>	
 	<tr>
-	   <td align=center bgcolor="#7eaee9">³» ¿ë</td>
+	   <td align=center bgcolor="#7eaee9">ë‚´ ìš©</td>
 	   <td  colspan=3 bgcolor=ffffff>
            <table>
 		      <tr>

@@ -1,7 +1,10 @@
-<%@ page contentType="text/html;charset=euc-kr" import="java.sql.*,oracle.dbpool.*"  %>
+<%@ page contentType="text/html;charset=UTF-8" import="java.sql.*,oracle.dbpool.*"  %>
+
+
+
 
 <HTML>
-	<HEAD><TITLE>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</TITLE>
+	<HEAD><TITLE>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</TITLE>
 	</HEAD>
 	<link href="../common/u3.css" type=text/css rel=stylesheet>
 
@@ -12,26 +15,26 @@
 <br>
 	<table border=1 width=550 height=30 bordercolor=black>
 		<tr>
-			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>ÀÚ À¯ °Ô ½Ã ÆÇ</b></td>
+			<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>ìž ìœ  ê²Œ ì‹œ íŒ</b></td>
 		</tr>
 	</table>
 	<br>
 	<table width=550 border=1 cellspacing=0 cellpadding=0  bordercolor="#C0C0C0">
 		<tr bgcolor="#7eaee9" height=21>
-			<td width=50 align="center" bgcolor="#7EAEE9"><font size="2" >¹øÈ£</font></td>
-			<td width=230  align="center">Á¦¸ñ</td>
-			<td width=100 align="center">³¯Â¥</td>
-			<td width=100 align="center">±Û¾´ÀÌ</td>
-			<td width=60 align="center">Á¶È¸¼ö</td>
+			<td width=50 align="center" bgcolor="#7EAEE9"><font size="2" >ë²ˆí˜¸</font></td>
+			<td width=230  align="center">ì œëª©</td>
+			<td width=100 align="center">ë‚ ì§œ</td>
+			<td width=100 align="center">ê¸€ì“´ì´</td>
+			<td width=60 align="center">ì¡°íšŒìˆ˜</td>
 		</tr>
 <%!   
-	int pagesize = 10;  // ÇÑÆäÀÌÁö´ç 10°³ Ãâ·Â¹°
-	int pageNUM=1;    // ÆäÀÌÁö ¹øÈ£
-	int pagecount=1 ; // ÆäÀÌÁö °¹¼ö ÁöÁ¤ º¯¼ö
-	int absolutepage=1;  // Àý´ë À§Ä¡ ÆäÀÌÁö ¹øÈ£
-	int dbcount=0 ;   //  DB ¾È¿¡ ±Û °¹¼ö ÀúÀå º¯¼ö
+	int pagesize = 10;  // í•œíŽ˜ì´ì§€ë‹¹ 10ê°œ ì¶œë ¥ë¬¼
+	int pageNUM=1;    // íŽ˜ì´ì§€ ë²ˆí˜¸
+	int pagecount=1 ; // íŽ˜ì´ì§€ ê°¯ìˆ˜ ì§€ì • ë³€ìˆ˜
+	int absolutepage=1;  // ì ˆëŒ€ ìœ„ì¹˜ íŽ˜ì´ì§€ ë²ˆí˜¸
+	int dbcount=0 ;   //  DB ì•ˆì— ê¸€ ê°¯ìˆ˜ ì €ìž¥ ë³€ìˆ˜
 %>
-<%
+<%   
 	try{ 
 		DBConnectionManager pool = DBConnectionManager.getInstance();
 		Connection con = pool.getConnection("ora8");
@@ -39,7 +42,7 @@
 		String  b_name, b_email, b_title, b_content, b_date, mailto;
 		int  b_id =0 , b_hit = 0, level=0, color=1 ;
 
-		// DB ÇàÀÇ ¼ö °è»ê
+		// DB í–‰ì˜ ìˆ˜ ê³„ì‚°
 		Statement stmt = con.createStatement();  
 		ResultSet pageset = stmt.executeQuery("select count(b_id) from re_board");
 		if( pageset.next()){
@@ -50,12 +53,12 @@
         int ii = dbcount + 1;
 
 		if(dbcount%pagesize == 0)   
-			pagecount = dbcount/(pagesize); // ÃÑ ÆäÀÌÁö¼ö ±¸ÇÏ±â
+			pagecount = dbcount/(pagesize); // ì´ íŽ˜ì´ì§€ìˆ˜ êµ¬í•˜ê¸°
 		else
-			pagecount = dbcount/(pagesize)+1; // ÃÑ ÆäÀÌÁö¼ö ±¸ÇÏ±â
+			pagecount = dbcount/(pagesize)+1; // ì´ íŽ˜ì´ì§€ìˆ˜ êµ¬í•˜ê¸°
 
 		if(request.getParameter("pageNUM") != null) {
-			pageNUM=Integer.parseInt(request.getParameter("pageNUM"));	 //ÁöÁ¤µÈ ÆäÀÌÁö º¸¿©ÁÖ±â
+			pageNUM=Integer.parseInt(request.getParameter("pageNUM"));	 //ì§€ì •ëœ íŽ˜ì´ì§€ ë³´ì—¬ì£¼ê¸°
 			absolutepage=(pageNUM-1)*pagesize+1;
 			ii = ii - (pageNUM-1)*pagesize;
 		}
@@ -70,14 +73,14 @@
 		int k=1;
 
 		while(rs.next() && k<=pagesize){ 
-			b_id=rs.getInt(1);			//±Û¹øÈ£
-			b_name=rs.getString(2);		// ±Û¾´ÀÌ
-			b_email=rs.getString(3);	//ÀÛ¼ºÀÚ ¸ÞÀÏ
-			b_title=rs.getString(4);	// ±ÛÁ¦¸ñ
-			b_content=rs.getString(5);	//±Û³»¿ë
-			b_date=rs.getString(6);		//ÀÛ¼º³¯Â¥
-			b_hit=rs.getInt(7);			// Á¶È¸¼ö
-			level=rs.getInt(10);		//±Û ·¹º§
+			b_id=rs.getInt(1);			//ê¸€ë²ˆí˜¸
+			b_name=rs.getString(2);		// ê¸€ì“´ì´
+			b_email=rs.getString(3);	//ìž‘ì„±ìž ë©”ì¼
+			b_title=rs.getString(4);	// ê¸€ì œëª©
+			b_content=rs.getString(5);	//ê¸€ë‚´ìš©
+			b_date=rs.getString(6);		//ìž‘ì„±ë‚ ì§œ
+			b_hit=rs.getInt(7);			// ì¡°íšŒìˆ˜
+			level=rs.getInt(10);		//ê¸€ ë ˆë²¨
 			if(!b_email.equals("")) {
 			mailto="<a href=mailto:"+b_email+">"+b_name+"</a>";
 			} else {
@@ -123,17 +126,17 @@
 			<td width=10>&nbsp;</td>
 			<td width=350  align=center valign=middle height=30>
   
-<%		// ÆäÀÌÁö ±¸ÇöºÎ
-			 int limit = 4 ;   //ÆäÀÌÁö ¸®½ºÆ® °³¼ö ÁöÁ¤
-			 //½ÃÀÛ ÆäÀÌÁö ±¸ÇÏ±â
+<%		// íŽ˜ì´ì§€ êµ¬í˜„ë¶€
+			 int limit = 4 ;   //íŽ˜ì´ì§€ ë¦¬ìŠ¤íŠ¸ ê°œìˆ˜ ì§€ì •
+			 //ì‹œìž‘ íŽ˜ì´ì§€ êµ¬í•˜ê¸°
 			 int temp =(pageNUM-1) % limit ;
 			 int startPage = pageNUM - temp;
-			// [ÀÌÀü] ¸µÅ© Ãß°¡ÇÏ±â
+			// [ì´ì „] ë§í¬ ì¶”ê°€í•˜ê¸°
 			if ((startPage-limit)>0){ %>
-				<a href='board_list.jsp?pageNUM=<%=startPage-1%>'>[ÀÌÀü]<a>
+				<a href='board_list.jsp?pageNUM=<%=startPage-1%>'>[ì´ì „]<a>
 <% 
 			}
-			 //ÆäÀÌÁö ¹øÈ£ ³ª¿­ÇÏ±â
+			 //íŽ˜ì´ì§€ ë²ˆí˜¸ ë‚˜ì—´í•˜ê¸°
 			for(int i=startPage ; i<(startPage+limit);i++){
 				if( i == pageNUM){%>
 					&nbsp;<%=i%>&nbsp;
@@ -145,9 +148,9 @@
 					}
 				 if(i >= pagecount) break;
 			 }
-			 //[´ÙÀ½] ¸µÅ© Ãß°¡
+			 //[ë‹¤ìŒ] ë§í¬ ì¶”ê°€
 			if ((startPage+limit)<=pagecount){ %>
-  				<a href='board_list.jsp?pageNUM=<%=startPage+limit%>'>[´ÙÀ½] <a>
+  				<a href='board_list.jsp?pageNUM=<%=startPage+limit%>'>[ë‹¤ìŒ] <a>
 <%
 			}
 %>

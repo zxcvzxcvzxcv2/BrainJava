@@ -1,9 +1,9 @@
-<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=euc-kr" %>
+<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 <%
 try {
 
-   //DBÇ® ¸Ş´ÏÀú °´Ã¼ »ı¼º »ç¿ë
+   //DBí’€ ë©”ë‹ˆì € ê°ì²´ ìƒì„± ì‚¬ìš©
 DBConnectionManager pool = DBConnectionManager.getInstance();
 Connection con = pool.getConnection("ora8");
  	
@@ -12,14 +12,14 @@ Connection con = pool.getConnection("ora8");
 	String b_email=request.getParameter("email");
 	String b_title=makeKOR(request.getParameter("title"));
 	String b_content=makeKOR(request.getParameter("content"));
-	String ip = request.getRemoteAddr(); // IP ¾Ë¾Æ³»±â
+	String ip = request.getRemoteAddr(); // IP ì•Œì•„ë‚´ê¸°
 
-   //Äõ¸®¿¡ '°¡ µé¾î°¡¸é ¿¡·¯°¡ ¹ß»ıÇÏ¹Ç·Î replace Ã³¸®ÇØÁØ´Ù.
+   //ì¿¼ë¦¬ì— 'ê°€ ë“¤ì–´ê°€ë©´ ì—ëŸ¬ê°€ ë°œìƒí•˜ë¯€ë¡œ replace ì²˜ë¦¬í•´ì¤€ë‹¤.
    b_title = Replace(b_title,"'","''");
    b_content = Replace(b_content,"'","''");
   
 
- //HTML ÅÂ±×(tag) È¿°ú¸¦ Á¦ÇÑÇÏ°í ½Í´Ù¸é
+ //HTML íƒœê·¸(tag) íš¨ê³¼ë¥¼ ì œí•œí•˜ê³  ì‹¶ë‹¤ë©´
  if(request.getParameter("tag") != null){
  b_title = Replace(b_title,"&","&amp;");
  b_title = Replace(b_title,"<","&lt;");
@@ -45,7 +45,7 @@ String b_id = request.getParameter("b_id");
         } else { 
 %>
             <script language=javascript>
-            	alert("±ÛÀ» ¼öÁ¤ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+            	alert("ê¸€ì„ ìˆ˜ì •í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
                 history.back();
             </script>
 <%
@@ -58,7 +58,7 @@ String b_id = request.getParameter("b_id");
 	pool.freeConnection("ora8", con);
 %>
     <script language=javascript>
-    	alert("¼öÁ¤ ÇÏ¿´½À´Ï´Ù.");
+    	alert("ìˆ˜ì • í•˜ì˜€ìŠµë‹ˆë‹¤.");
     	location.href="board_list.jsp";
      </script>
 <%
@@ -73,11 +73,11 @@ String b_id = request.getParameter("b_id");
    if (str==null) 
     kor=null;
    else
-    kor=new String(str.getBytes("ISO-8859-1"),"EUC-KR");
+    kor=new String(str.getBytes("ISO-8859-1"),"UTF-8");
    return kor;
    }
 	
-	   // °³Çà Ã³¸®¸¦ À§ÇÑ ¸Ş¼Òµå 
+	   // ê°œí–‰ ì²˜ë¦¬ë¥¼ ìœ„í•œ ë©”ì†Œë“œ 
 
 public static String Replace(String original, String oldString, String newString)
            {
@@ -90,10 +90,10 @@ public static String Replace(String original, String oldString, String newString
 	
 
 <html>
-<head><title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+<head><title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
 <script language="Javascript">
 function alrim(){
-	alert("¼º°øÀûÀ¸·Î ¼öÁ¤ÇÏ¿´½À´Ï´Ù.");
+	alert("ì„±ê³µì ìœ¼ë¡œ ìˆ˜ì •í•˜ì˜€ìŠµë‹ˆë‹¤.");
 	location.href="board_list.jsp";
 }
 </script>

@@ -1,10 +1,11 @@
-<%@ page  import="java.sql.*,oracle.dbpool.*,java.util.*" contentType="text/html;charset=euc-kr" %>
-<%
-try {
+<%@ page  import="java.sql.*,oracle.dbpool.*,java.util.*" contentType="text/html;charset=UTF-8" %>
 
-   //DBÇ® ¸Þ´ÏÀú °´Ã¼ »ý¼º »ç¿ë
+<%    
+try {
+   
+   //DBí’€ ë©”ë‹ˆì € ê°ì²´ ìƒì„± ì‚¬ìš©
 DBConnectionManager pool = DBConnectionManager.getInstance();
-Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª jdbc
+Connection con = pool.getConnection("ora8");//ì¸ìžê°’ jdbc
  
 	
 	int b_id=0;
@@ -14,16 +15,16 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª jdbc
 	String b_email=request.getParameter("email");
 	String b_title=makeKOR(request.getParameter("title"));
 	String b_content=makeKOR(request.getParameter("body"));
-	String ip = request.getRemoteAddr(); // IP ¾Ë¾Æ³»±â
+	String ip = request.getRemoteAddr(); // IP ì•Œì•„ë‚´ê¸°
 
 
- //Äõ¸®¿¡ '°¡ µé¾î°¡¸é ¿¡·¯°¡ ¹ß»ýÇÏ¹Ç·Î replace Ã³¸®ÇØÁØ´Ù.
+ //ì¿¼ë¦¬ì— 'ê°€ ë“¤ì–´ê°€ë©´ ì—ëŸ¬ê°€ ë°œìƒí•˜ë¯€ë¡œ replace ì²˜ë¦¬í•´ì¤€ë‹¤.
  b_title = Replace(b_title,"'","''");
  b_content = Replace(b_content,"'","''");
 
 
-	 /* ´äº¯Çü¿¡¼­ Ãß°¡µÈ ºÎºÐ */
-	    int maxref=0;  //DB ¾È¿¡ µé¾î ÀÖ´Â °¡Àå Å« ±Û ±×·ì¹øÈ£
+	 /* ë‹µë³€í˜•ì—ì„œ ì¶”ê°€ëœ ë¶€ë¶„ */
+	    int maxref=0;  //DB ì•ˆì— ë“¤ì–´ ìžˆëŠ” ê°€ìž¥ í° ê¸€ ê·¸ë£¹ë²ˆí˜¸
         int ref=0;
         int step=0;
         int level=0;
@@ -34,7 +35,7 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª jdbc
 	if(rs.next()) {
 		b_id=rs.getInt(1); 
 		b_id=b_id+1;    
-   		maxref=rs.getInt(2); // ±Û Ç×¸ñ ÃÖ´ë°ª ¹ÝÈ¯
+   		maxref=rs.getInt(2); // ê¸€ í•­ëª© ìµœëŒ€ê°’ ë°˜í™˜
 		rs.close();
 	} else {
 		b_id=1;   
@@ -75,7 +76,7 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª jdbc
 	pstmt.executeUpdate();
 	pstmt.close();
 	con.close();
-   pool.freeConnection("ora8", con); //¿¬°á ²÷±â
+   pool.freeConnection("ora8", con); //ì—°ê²° ëŠê¸°
 %>
 	 <script language=javascript>
         location.href ="board_list.jsp"; 
@@ -94,11 +95,11 @@ Connection con = pool.getConnection("ora8");//ÀÎÀÚ°ª jdbc
    if (str==null) 
     kor=null;
    else
-    kor=new String(str.getBytes("ISO-8859-1"),"EUC-KR");
+    kor=new String(str.getBytes("ISO-8859-1"),"UTF-8");
    return kor;
    }
 	
-	   // °³Çà Ã³¸®¸¦ À§ÇÑ ¸Þ¼Òµå 
+	   // ê°œí–‰ ì²˜ë¦¬ë¥¼ ìœ„í•œ ë©”ì†Œë“œ 
 
 public static String Replace(String original, String oldString, String newString)
            {
@@ -109,10 +110,10 @@ public static String Replace(String original, String oldString, String newString
 
 %>
 <html>
-<head><title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+<head><title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
 <script language="Javascript">
 function alrim(){
-	alert("¼º°øÀûÀ¸·Î µî·ÏÇÏ¿´½À´Ï´Ù.")
+	alert("ì„±ê³µì ìœ¼ë¡œ ë“±ë¡í•˜ì˜€ìŠµë‹ˆë‹¤.")
 	location.href="reply_list.jsp";
 }
 </script>

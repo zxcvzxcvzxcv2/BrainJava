@@ -1,4 +1,4 @@
-<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=euc-kr" %>
+<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 <%!
 String b_name ,b_email,b_title,b_content,b_date,b_ip,mailto;
@@ -8,14 +8,14 @@ String b_name ,b_email,b_title,b_content,b_date,b_ip,mailto;
  <%
 try {
       
- //DBÇ® ¸Ş´ÏÀú °´Ã¼ »ı¼º »ç¿ë
+ //DBí’€ ë©”ë‹ˆì € ê°ì²´ ìƒì„± ì‚¬ìš©
 DBConnectionManager pool = DBConnectionManager.getInstance();
 Connection con = pool.getConnection("ora8");
      
    String bid=request.getParameter("b_id"); 
 
 	Statement stmt = con.createStatement();
-    stmt.executeUpdate("update re_board set b_hit=b_hit+1 where b_id="+bid+"");  //Á¶È¸¼ö¸¦ ¿Ã¸°´Ù
+    stmt.executeUpdate("update re_board set b_hit=b_hit+1 where b_id="+bid+"");  //ì¡°íšŒìˆ˜ë¥¼ ì˜¬ë¦°ë‹¤
 
 	String sql="select b_id, b_name, b_email, b_title, b_content, to_char(b_date,'yy-mm-dd'),b_hit, b_ip, ref, step, anslevel, pwd  from re_board where b_id= "+bid; 
 
@@ -29,7 +29,7 @@ Connection con = pool.getConnection("ora8");
      b_date=rs.getString(6);
      b_hit=rs.getInt(7)+1;
      b_ip=rs.getString(8);
-     ref = rs.getInt(9);  // ±Û ±×·ì
+     ref = rs.getInt(9);  // ê¸€ ê·¸ë£¹
      if(!b_email.equals("")) {
        mailto="(<font size=2><a href=mailto:"+b_email+">"+b_email+"</a></font>)";
      } else {
@@ -47,7 +47,7 @@ Connection con = pool.getConnection("ora8");
 %>	    
 
 <html>
-<head><title>ÄÄÇ»ÅÍÀü¹®¼îÇÎ¸ô</title>
+<head><title>ì»´í“¨í„°ì „ë¬¸ì‡¼í•‘ëª°</title>
 <link href="../common/u3.css" type=text/css rel=stylesheet>
 <script>
 function  go_update(){
@@ -62,31 +62,31 @@ function  go_update(){
 <br>
   <table border=1 width=550 height=30 bordercolor=black>
 	<tr>
-		<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>°Ô½Ã¹° ¼öÁ¤</b></td>
+		<td align=center bgcolor=0063ce><font size=3 color=#FFFFFF><b>ê²Œì‹œë¬¼ ìˆ˜ì •</b></td>
 	</tr>
   </table><br>
 <table width="550" border="1" cellspacing="0" cellpadding="0">
 <form method="post" name="update_form" action="update.jsp">
 	<tr class="term">
-	   <td width=120 align=center bgcolor="#7eaee9">µî·ÏÀÚ</td>
+	   <td width=120 align=center bgcolor="#7eaee9">ë“±ë¡ì</td>
 	   <td width=170 bgcolor=ffffff>&nbsp;<input type="text" size=20 name="name" value="<%=b_name%>"></td>
-	   <td width=120 align=center bgcolor="#7eaee9">µî·ÏÀÏ</td>
+	   <td width=120 align=center bgcolor="#7eaee9">ë“±ë¡ì¼</td>
 	   <td width=170 bgcolor=ffffff>&nbsp;<%=b_date%></td>
 	</tr>	
 	<tr class="term">
-       <td width=120 align=center bgcolor="#7eaee9">E-Mail ÁÖ¼Ò</td>
+       <td width=120 align=center bgcolor="#7eaee9">E-Mail ì£¼ì†Œ</td>
        <td colspan=3 bgcolor=ffffff>&nbsp;<input type="text" size=50 name="email" value="<%=b_email%>"></td>
     </tr>
 	<tr class="term">
-	   <td width=120 align=center bgcolor="#7eaee9">ºñ¹Ğ¹øÈ£</td>
+	   <td width=120 align=center bgcolor="#7eaee9">ë¹„ë°€ë²ˆí˜¸</td>
 	   <td colspan=3 bgcolor=ffffff>&nbsp;<input type="password" size=10 name="pwd" ></td>
 	</tr>
 	<tr class="term">
-	   <td width=120 align=center bgcolor="#7eaee9">Á¦ ¸ñ</td>
+	   <td width=120 align=center bgcolor="#7eaee9">ì œ ëª©</td>
 	   <td  colspan=3 bgcolor=ffffff>&nbsp;<input type="text" size=50 name="title" value="<%=b_title%>"></td>
 	</tr>	
 	<tr class="term">
-	   <td width=120 align=center bgcolor="#7eaee9">³» ¿ë</td>
+	   <td width=120 align=center bgcolor="#7eaee9">ë‚´ ìš©</td>
 	   <td width=440 colspan=3 bgcolor=ffffff>
 	   <table>
 	      <tr>

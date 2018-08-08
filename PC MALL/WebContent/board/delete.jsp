@@ -1,4 +1,4 @@
-<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=euc-kr" %>
+<%@ page  import="java.sql.*,oracle.dbpool.*" contentType="text/html;charset=UTF-8" %>
 
 <%
 	DBConnectionManager pool = DBConnectionManager.getInstance();
@@ -6,7 +6,7 @@
    
 	try {
 		int b_id=Integer.parseInt(request.getParameter("b_id"));
-		String pwd =null ;   //DB¿¡¼­ ÇöÀç ±Û¾´»ç¶÷°ú ¼¼¼ÇÀÌ°°À¸¸é »èÁ¦
+		String pwd =null ;   //DBì—ì„œ í˜„ìž¬ ê¸€ì“´ì‚¬ëžŒê³¼ ì„¸ì…˜ì´ê°™ìœ¼ë©´ ì‚­ì œ
  
 		Statement stmt= con.createStatement();
 		ResultSet rs=stmt.executeQuery("select pwd from re_board where b_id="+b_id);
@@ -23,7 +23,7 @@
 		} else {
 %>
 			<script language=javascript>
-				alert("±ÛÀ» »èÁ¦ÇÒ ¼ö ¾ø½À´Ï´Ù.");
+				alert("ê¸€ì„ ì‚­ì œí•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
 				history.back();
 			</script>
 <%
